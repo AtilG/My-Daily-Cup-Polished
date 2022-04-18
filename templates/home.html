@@ -129,20 +129,18 @@
     <h3>Here are your current task lists!</h3> 
 
     <div class="task_list_display">
-        {% for i in all_task_lists %}
-            <p>Task List: <b>{{task_lists[i].title}}</b>
-                <form action = "/delete_task_list" method = "POST">
-                    <button type = "submit" value = {{task_lists[i].id}} name = "delete_task_list"> Delete Task List</button>
-                </form>
+        {% for task in task_lists: %}
+            <p>Task List: <b>{{task.title}}</b>
+                
             </p>
-            <p>Tasks: <b> {{task_lists[i].content}}</b></p>
+            <p>Tasks: <b> {{task.content}}</b></p>
             <form action="/home" method = "POST">
                 <input type = "text" placeholder="Input New Task!" name = "task_entry">
                 <input type = "submit" value = "+">
             </form>
             
                 <form action = "/home" method = "POST">
-                    <button type = "submit" value = {{task_lists[i].content}} name = "delete_task_entry"> Delete Task</button>
+                    <button type = "submit" value = 3 name = "delete_task_entry"> Delete Task</button>
                 </form>
         {% endfor %}
     </div>
