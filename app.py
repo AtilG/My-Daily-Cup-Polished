@@ -11,6 +11,7 @@ from flask_login import (
     logout_user,
     current_user,
 )
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import find_dotenv, load_dotenv
 from openweather import get_weather
@@ -149,6 +150,7 @@ def home():
         nyt=nyt_results(),
         twitter_trends=get_trends(),
         nasa=nasa_picture(),
+        task_lists=get_task_lists(current_user.id),
     )
 
 

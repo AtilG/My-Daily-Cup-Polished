@@ -1,0 +1,26 @@
+#brown {
+    background-color: brown;
+    color: white;
+    background: brown;
+}
+
+#deepBrown {
+    color: white;
+    background: rgb(70, 44, 44);
+    background-color: rgb(70, 44, 44);
+}
+
+#beige {
+    color: white;
+    background: #a28a62;
+    
+}
+#brownish-pink{
+    color: white;
+    background: #9b6247;
+} 
+#light-brownish-pink{
+    color: white;
+    background: #b68a75;
+    display: flex;
+}
