@@ -51,9 +51,8 @@ class Task(db.Model):
     content = db.Column(db.String(1500), nullable=False)
 
     def __repr__(self):
-        return "User: %s posted: %s, and titled it ' %s ', at " "the time of %s" % (
+        return "User: %s posted: %s, and titled it ' %s" % (
             self.user,
             self.content,
             self.title,
-            self.timestamp,
         )
