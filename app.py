@@ -150,7 +150,7 @@ def home():
         nyt=nyt_results(),
         twitter_trends=get_trends(),
         nasa=nasa_picture(),
-        task_lists = get_task_lists(current_user.id),
+        task_lists=get_task_lists(current_user.id),
     )
 
 
