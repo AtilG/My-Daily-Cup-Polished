@@ -1,31 +1,43 @@
+
+.login {
+    height:100%;
+
 #login {
     background: linear-gradient(to right,
             #ccb4a5 0%,
             #ccb4a5 50%,
             #65402E 50%,
             #65402E 100%);
+
 }
 
 #loginSquare {
     background-color: #be9583;
-    height: 400px;
-    width: 600px;
+
+    height: auto;
+    width: auto;
+
     position: relative;
     top: 100px;
     left: 40px;
+
     border-radius: 25px;
 }
 
 #loginTaskForm {
+
     position: absolute;
     top: 250px;
     bottom: 100px;
     left: 80px;
     right: 50px;
+
 }
 
 #enterCredentials {
     color: #65402E;
+
+
     position: absolute;
     bottom: 90%;
 }
@@ -54,18 +66,12 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    position: absolute;
-    bottom: 25%;
-    left: 200px;
 }
 
 #loginBrandName {
     font-family: 'Oleo Script', cursive;
     font-size: 450%;
     color: #be9583;
-    position: absolute;
-    left: 61.7%;
-    bottom: 41%;
 }
 
 #loginLogo {
@@ -73,7 +79,20 @@
     max-height: 600px;
     height: auto;
     width: auto;
-    float: right;
-    position: relative;
-    right: 2%;
+}
+
+html {
+    height:100%;
+}
+
+.right-color {
+    background: #65402E;
+}
+
+.left-color {
+    background: #ccb4a5;
+}
+
+.form-group {
+    padding:  10px 0
 }
