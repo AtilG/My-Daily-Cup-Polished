@@ -1,0 +1,30 @@
+#brown {
+    background-color: brown;
+    color: white;
+    background: brown;
+}
+
+#deepBrown {
+    color: white;
+    background: #65402E;
+}
+
+#beige {
+    color: white;
+    background: #AAA898;
+}
+#brownish-pink{
+    color: white;
+    background: #BA9182;
+} 
+#light-brownish-pink{
+    color: white;
+    background: #C6ADA3;
+    display: flex;
+}
+
+#entry_Container{  
+    background: #D7D6D2;
+    display: block;
+    align-items: center;
+}

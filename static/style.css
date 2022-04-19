@@ -1,5 +1,11 @@
-#test {
-    display: block;
+#logo {
+    width: 50%;
+    height: 50%;
+
+}
+
+#nav {
+    background-color: #65402E;
 }
 
 #weather_info {
@@ -8,6 +14,7 @@
 
 #fun_fact {
     display: block;
+    margin-bottom: 10px;
 }
 
 #nyt_result {
@@ -20,6 +27,29 @@
 
 #nasa {
     display: block;
+}
+
+#read {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#read #collapseNasa.collapse:not(.show) {
+    display: block;
+    height: 3rem;
+    overflow: hidden;
+}
+
+#read #collapseNasa.collapsing {
+    height: 3rem;
+}
+
+#read a.collapsed::after {
+    content: 'Read more...';
+}
+
+#read a:not(.collapsed)::after {
+    content: 'Read less...';
 }
 
 #settings {
@@ -52,4 +82,10 @@
 
 .button {
     margin: 5px;
+}
+
+.btn-primary {
+    background-color: #65042E !important;
+    border-color: #65042E !important
+
 }

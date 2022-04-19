@@ -3,6 +3,7 @@ import unittest
 from unittest import mock
 from unittest.mock import MagicMock, patch
 from openweather import get_weather
+from nasa import nasa_picture
 from twitter import get_trends
 import json
 import os
@@ -91,6 +92,23 @@ class TwitterTests(unittest.TestCase):
                 mock_api.return_value = mock_reponse_api.return_value
 
                 self.assertEqual(get_trends(), ["a", "b", "c", "d", "e"])
+
+
+class NasaTests(unittest.TestCase):
+    """We'll test our Nasa api"""
+
+    def test_Nasa_API(self):
+        mock_response_api = MagicMock()
+        mock_response_api.json.return_value = {
+            "hdurl": "https://apod.nasa.gov/apod/image/2204/HaleBoppSeip_c4096.jpg",
+            "explanation": "amazing explanation",
+        }
+        with patch("nasa.requests.get") as mock_requests_get:
+            mock_requests_get.return_value = mock_response_api
+            self.assertEqual(
+                nasa_picture()["picture"],
+                "https://apod.nasa.gov/apod/image/2204/HaleBoppSeip_c4096.jpg",
+            )
 
 
 if __name__ == "__main__":
