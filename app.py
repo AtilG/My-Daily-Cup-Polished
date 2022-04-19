@@ -206,7 +206,7 @@ def users_entries():
         return redirect(flask.url_for("home"))
     else:
         for entry in prev_entries:
-            #tones.append(get_emotion(entry))
+            # tones.append(get_emotion(entry))
             pass
         return render_template(
             "entries.html",
