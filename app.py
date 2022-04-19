@@ -153,6 +153,7 @@ def home():
         task_lists=get_task_lists(current_user.username),
     )
 
+
 @app.route("/add_task_list", methods=["GET", "POST"])
 def add_task_list():
 
@@ -167,6 +168,7 @@ def add_task_list():
 
     return flask.redirect(flask.url_for("home"))
 
+
 @app.route("/display_task_lists", methods=["GET", "POST"])
 def display_task_list():
 
@@ -176,24 +178,25 @@ def display_task_list():
         "home.html", task_lists=task_lists, all_task_lists=len(task_lists)
     )
 
+
 @app.route("/delete_task_list", methods=["GET", "POST"])
 def delete_list_of_tasks():
-    '''this function deletes a task list'''
+    """this function deletes a task list"""
     if request.method == "POST":
         task_list_id = int(flask.request.form["delete_task_list"])
         print("The Deleted Task List ID is: ", task_list_id)
-        '''function located in database_function.py'''
+        """function located in database_function.py"""
         delete_task_list(task_list_id)
     return flask.redirect(flask.url_for("home"))
 
+
 @app.route("/edit_task", methods=["GET", "POST"])
 def task_editor():
-    '''this function edits a task'''
+    """this function edits a task"""
     if flask.request.method == "POST":
         content = request.form.get("edit_task")
         print(content)
     return flask.redirect(flask.url_for("home"))
-
 
 
 @app.route("/view_entries", methods=["GET", "POST"])
