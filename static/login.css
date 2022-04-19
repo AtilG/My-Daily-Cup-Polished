@@ -1,9 +1,11 @@
+
 .login {
     height:100%;
 }
 
 #loginSquare {
     background-color: #be9583;
+
     height: auto;
     width: auto;
     border-radius: 25px;
@@ -16,6 +18,21 @@
     color: #65402E;
 }
 
+#emailInput {
+    text-align: center;
+    position: absolute;
+    bottom: 70%;
+    left: 13%;
+}
+
+#passwordInput {
+    text-align: center;
+    position: absolute;
+    bottom: 55%;
+    left: 13%;
+
+}
+
 #btn-login {
     background-color: #65442E;
     border: none;
@@ -25,12 +42,18 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    position: absolute;
+    bottom: 25%;
+    left: 200px;
 }
 
 #loginBrandName {
     font-family: 'Oleo Script', cursive;
     font-size: 450%;
     color: #be9583;
+    position: absolute;
+    left: 61.7%;
+    bottom: 41%;
 }
 
 #loginLogo {

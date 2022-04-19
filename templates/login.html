@@ -23,6 +23,7 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
+  
 <div class="row h-100 w-100 m-0">
     <div class="col-xl-6 left-color">
     <div class="row h-100">
@@ -31,37 +32,9 @@
     <div id="loginTaskForm" class="p-4">
         <h1 id="enterCredentials"> Please Enter Your Credentials: </h1>
 
-        <form action="/" method="POST">
-                <div class="form-group">
-                  <label for="emailInput">Email address</label>
-                  <input type="text" class="form-control" name="email" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="passwordInput">Password</label>
-                  <input type="text" name="pass" class="form-control" id="passwordInput" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Log In" id="btn-login">
-                </div>
-        </form>
-    </div>
-    </div>
-</div>
-</div>
-    <div class="col-xl-6 right-color h-100 d-inline-block">
-        <div class="row h-100">
-            <div class="col-lg-12 my-auto mx-auto">
-                <div class="p-2 text-center">
-            <img id="loginLogo" src="static/mug_logo.png" class="pt-3">
+    <img id="loginLogo" src="static/mug_logo.png">
 
-            <h2 id="loginBrandName">My Daily Cup</h2>
-        </div>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</body>
+    <h2 id="loginBrandName">My Daily Cup</h2>
+    <div id="loginSquare"></div>
 
 </html>
