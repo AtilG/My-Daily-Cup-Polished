@@ -189,7 +189,8 @@ def delete_list_of_tasks():
         delete_task_list(task_list_id)
     return flask.redirect(flask.url_for("home"))
 
-'''
+
+"""
 @app.route("/new_task", method=["GET", "POST"])
 def add_new_task_entry():
     if flask.request.method == "POST":
@@ -198,7 +199,7 @@ def add_new_task_entry():
         new_task = Task(content=content, user=user)
         db.session.append(content)
         db.session.commit()
-    return flask.redirect(flask.url_for("home"))'''
+    return flask.redirect(flask.url_for("home"))"""
 
 
 @app.route("/view_entries", methods=["GET", "POST"])
