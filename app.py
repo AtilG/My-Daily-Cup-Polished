@@ -156,9 +156,10 @@ def home():
 def add_task_list():
     """In this method we will add task to our task list"""
     if flask.request.method == "POST":
-        user = current_user.id
+        user = current_user.username
         title = request.form.get("task_list_title")
         content = request.form.get("task_entry")
+
         task_list_information = Task(
             title=title, content=content, user=current_user.username
         )
@@ -181,9 +182,20 @@ def display_task_list():
 @app.route("/delete_task_list", methods=["GET", "POST"])
 def delete_task():
     """In this method we will remove task from our task list"""
+    if request.method == "POST":
+        task_list_id = int(flask.request.form["delete_task_list"])
+        print("The Deleted Task List ID is: ", task_list_id)
+        """function located in database_function.py"""
+        delete_task_list(task_list_id)
+    return flask.redirect(flask.url_for("home"))
+
+
+@app.route("/edit_task", methods=["GET", "POST"])
+def task_editor():
+    """this function edits a task"""
     if flask.request.method == "POST":
-        index = request.form.get("delete_task_list")
-        delete_task_list(index)
+        content = request.form.get("edit_task")
+        print(content)
     return flask.redirect(flask.url_for("home"))
 
 
