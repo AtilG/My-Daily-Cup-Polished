@@ -51,6 +51,18 @@ a:hover {
     width: 100%;
 }
 
+.task_title {
+    font-size: 20px;
+}
+
+.task_list_display {
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 5px;
+    margin: 10px;
+    padding-top: 10px;
+}
+
 .sidebar-item {
     margin: 10px;
 }
