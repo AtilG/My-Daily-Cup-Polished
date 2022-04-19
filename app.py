@@ -154,7 +154,7 @@ def home():
 
 @app.route("/add_task_list", methods=["GET", "POST"])
 def add_task_list():
-    '''In this method we will add task to our task list'''
+    """In this method we will add task to our task list"""
     if flask.request.method == "POST":
         user = current_user.id
         title = request.form.get("task_list_title")
@@ -171,7 +171,7 @@ def add_task_list():
 
 @app.route("/display_task_lists", methods=["GET", "POST"])
 def display_task_list():
-    '''In this method we will display task in our task list'''
+    """In this method we will display task in our task list"""
     task_lists = get_task_lists(current_user.id)
 
     return render_template(
@@ -181,7 +181,7 @@ def display_task_list():
 
 @app.route("/delete_task_list", methods=["GET", "POST"])
 def delete_task():
-    '''In this method we will remove task from our task list'''
+    """In this method we will remove task from our task list"""
     if flask.request.method == "POST":
         index = request.form.get("delete_task_list")
         delete_task_list(index)
