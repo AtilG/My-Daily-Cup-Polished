@@ -115,7 +115,7 @@
             <input type="submit" value="Post">
         </form>
     </div>
-        <!-- task form added. issue with columns duplicating on webpage refresh. -->
+        <!-- forms for task list entry below -->
 
     <div id ="add_task_list"> 
         <form action= "/add_task_list" method="POST">
@@ -127,21 +127,26 @@
     
     </div>
     <h3>Here are your current task lists!</h3> 
-
+ <!-- need to figure out how to make value the task id -->
     <div class="task_list_display">
         {% for task in task_lists: %}
             <p>Task List: <b>{{task.title}}</b>
+                <form action = "/delete_task_list" method = "POST">
+                <button type = "submit" value = {{task.id}} name = "delete_task_list"> Delete Task List</button>
+            </form>
+        
                 
             </p>
             <p>Tasks: <b> {{task.content}}</b></p>
-            <form action="/home" method = "POST">
-                <input type = "text" placeholder="Input New Task!" name = "task_entry">
+            <p>Task ID: {{task.id}}</p>
+            <form action="/new_task" method = "POST">
+                <input type = "text" placeholder="Input New Task!" name = "new_task_entry">
                 <input type = "submit" value = "+">
             </form>
+
             
-                <form action = "/home" method = "POST">
-                    <button type = "submit" value = 3 name = "delete_task_entry"> Delete Task</button>
-                </form>
+            
+              
         {% endfor %}
     </div>
 </body>

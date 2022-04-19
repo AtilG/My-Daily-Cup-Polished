@@ -182,11 +182,23 @@ def display_task_list():
 
 
 @app.route("/delete_task_list", methods=["GET", "POST"])
-def delete_task_list():
-    if flask.request.method == "POST":
-        index = request.form.get("delete_task_list")
-        delete_task_list(index)
+def delete_list_of_tasks():
+    if request.method == "POST":
+        task_list_id = int(flask.request.form["delete_task_list"])
+        print("The Deleted Task List ID is: ", task_list_id)
+        delete_task_list(task_list_id)
     return flask.redirect(flask.url_for("home"))
+
+'''
+@app.route("/new_task", method=["GET", "POST"])
+def add_new_task_entry():
+    if flask.request.method == "POST":
+        user=current_user.id
+        content = request.form.get("new_task_entry")
+        new_task = Task(content=content, user=user)
+        db.session.append(content)
+        db.session.commit()
+    return flask.redirect(flask.url_for("home"))'''
 
 
 @app.route("/view_entries", methods=["GET", "POST"])
