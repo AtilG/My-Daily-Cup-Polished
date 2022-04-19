@@ -83,7 +83,7 @@ def login():
                 # if the user isn't logged in, the password is incorrect
                 flask.flash("Password is not correct. Please try again.")
         # if the user does not exist, redirect to signup
-        except LookupError:
+        except:
             flask.flash("No user with that email found. Register below!")
             return flask.redirect(flask.url_for("signup"))
     return render_template(
@@ -116,7 +116,7 @@ def signup():
             flask.flash("You have successfully registered.")
             return flask.redirect(flask.url_for("login"))
         # if it throws an error, some input has conflicted with the rules
-        except LookupError:
+        except:
             flask.flash(
                 "Something went wrong. Either that username is taken or \
                 you have left an entry blank. Please try again."
