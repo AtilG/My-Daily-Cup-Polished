@@ -55,9 +55,8 @@
     position: relative;
     top: 100px;
     left: 40px;
+    border-radius: 25px;
 }
-
-
 
 #loginTaskForm{
     position: absolute;
@@ -68,7 +67,7 @@
 }
 
 #enterCredentials{
-    color: #ccb4a5;
+    color: #65402E;
     position: absolute;
     bottom: 90%;
 }
@@ -107,7 +106,7 @@
     font-size: 450%;
     color: #be9583;
     position: absolute;
-    left: 64%;
+    left: 61.7%;
     bottom: 41%;
 }
 
@@ -117,5 +116,7 @@
     height: auto;
     width: auto;
     float: right;
+    position: relative;
+    right:2%;
 }
 
