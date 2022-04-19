@@ -148,7 +148,7 @@ def home():
         nyt=nyt_results(),
         twitter_trends=get_trends(),
         nasa=nasa_picture(),
-        task_lists=get_task_lists(current_user.id),
+        task_lists=get_task_lists(current_user.username),
     )
 
 
@@ -159,10 +159,7 @@ def add_task_list():
         user = current_user.id
         title = request.form.get("task_list_title")
         content = request.form.get("task_entry")
-        print(title)
-        print(content)
-        task_list_information = Task(title=title, content=content, user=user)
-
+        task_list_information = Task(title=title, content=content, user=current_user.username)
         db.session.add(task_list_information)
         db.session.commit()
 
