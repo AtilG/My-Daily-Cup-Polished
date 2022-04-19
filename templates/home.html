@@ -191,6 +191,7 @@
         <form action="/delete_task_list" method="POST">
             <button type="submit" value={{task.id}} name="delete_task_list"> Delete Task List</button>
         </form>
+
         </p>
 
         <p>Tasks: <b> {{task.content}}</b>
@@ -198,6 +199,7 @@
             <button type="submit" value={{task.content}} name="edit_task"> Edit Tasks</button>
         </form>
         </p>
+
         {% endfor %}
 
     </div>

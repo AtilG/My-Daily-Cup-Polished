@@ -6,21 +6,25 @@
 
 #deepBrown {
     color: white;
-    background: rgb(70, 44, 44);
-    background-color: rgb(70, 44, 44);
+    background: #65402E;
 }
 
 #beige {
     color: white;
-    background: #a28a62;
-    
+    background: #AAA898;
 }
 #brownish-pink{
     color: white;
-    background: #9b6247;
+    background: #BA9182;
 } 
 #light-brownish-pink{
     color: white;
-    background: #b68a75;
+    background: #C6ADA3;
     display: flex;
+}
+
+#entry_Container{  
+    background: #D7D6D2;
+    display: block;
+    align-items: center;
 }
