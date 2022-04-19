@@ -3,9 +3,11 @@
     height: 50%;
 
 }
+
 #nav {
     background-color: #65402E;
 }
+
 #weather_info {
     display: block;
 }
