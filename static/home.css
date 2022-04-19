@@ -1,0 +1,135 @@
+body {
+    background-color: #CCB4A5;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+    opacity: 0.5;
+}
+
+#pcontent {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+#logo:hover {
+    opacity: 0.5;
+}
+
+#nav {
+    background-color: #65402E;
+}
+
+#main {
+    background: rgba(155, 68, 42, 0.28);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    padding: 10px;
+}
+
+#sidebar {
+    width: 300px;
+    margin-left: 100px;
+    /*   background: rgba(155, 68, 42, 0.28);
+    box-shadow: 2px 4px 4px rgb(0 0 0 / 25%);*/
+    border: 1px solid gray;
+    border-radius: 5px;
+    vertical-align: center;
+    padding: 10px;
+    text-align: center;
+
+}
+
+#tasks {
+    text-align: center;
+    width: 100%;
+}
+
+.sidebar-item {
+    margin: 10px;
+}
+
+.list-group-flush {
+    border-radius: 5px;
+}
+
+#weather_info {
+    display: block;
+    background: rgb(0 0 0 / 16%);
+    line-height: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Outfit', sans-serif;
+
+}
+
+#fun_fact {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#nyt_result {
+    display: block;
+}
+
+#twitter {
+    display: block;
+}
+
+#nasa {
+    display: block;
+    background: rgb(0 0 0 / 16%);
+    line-height: 5px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+#read {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#read #collapseNasa.collapse:not(.show) {
+    display: block;
+    height: 3rem;
+    overflow: hidden;
+}
+
+#read #collapseNasa.collapsing {
+    height: 3rem;
+}
+
+#read a.collapsed::after {
+    content: 'Read more...';
+}
+
+#read a:not(.collapsed)::after {
+    content: 'Read less...';
+}
+
+#settings {
+    display: none;
+    border: 1px solid black;
+    background-color: rgb(180, 179, 179);
+}
+
+.center {
+    text-align: center;
+}
+
+.button {
+    margin: 5px;
+}
+
+.btn-primary {
+    background-color: #65042E !important;
+    border-color: #65042E !important;
+    margin: 5px;
+}

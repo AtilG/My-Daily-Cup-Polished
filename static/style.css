@@ -3,13 +3,16 @@
     height: 50%;
 
 }
-
+#nav {
+    background-color: #65402E;
+}
 #weather_info {
     display: block;
 }
 
 #fun_fact {
     display: block;
+    margin-bottom: 10px;
 }
 
 #nyt_result {
@@ -24,6 +27,29 @@
     display: block;
 }
 
+#read {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#read #collapseNasa.collapse:not(.show) {
+    display: block;
+    height: 3rem;
+    overflow: hidden;
+}
+
+#read #collapseNasa.collapsing {
+    height: 3rem;
+}
+
+#read a.collapsed::after {
+    content: 'Read more...';
+}
+
+#read a:not(.collapsed)::after {
+    content: 'Read less...';
+}
+
 #settings {
     display: none;
     border: 1px solid black;
@@ -36,4 +62,9 @@
 
 .button {
     margin: 5px;
+}
+
+.btn-primary {
+    background-color: #65042E !important;
+    border-color: #65042E !important
 }
