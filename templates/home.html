@@ -134,15 +134,15 @@
                 <form action = "/delete_task_list" method = "POST">
                 <button type = "submit" value = {{task.id}} name = "delete_task_list"> Delete Task List</button>
             </form>
-        
-                
             </p>
-            <p>Tasks: <b> {{task.content}}</b></p>
-            <p>Task ID: {{task.id}}</p>
-            <form action="/new_task" method = "POST">
-                <input type = "text" placeholder="Input New Task!" name = "new_task_entry">
-                <input type = "submit" value = "+">
+
+            <p>Tasks: <b> {{task.content}}</b>
+            <form action = "/edit_task" method = "POST">
+                <button type = "submit" value = {{task.content}} name = "edit_task"> Edit Tasks</button>
             </form>
+            </p>
+   
+           
 
             
             
