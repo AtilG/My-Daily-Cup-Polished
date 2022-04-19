@@ -27,7 +27,7 @@ from fun_fact import fun_fact
 from nyt import nyt_results
 
 from twitter import get_trends
-from formatdate import formation
+from formatDate import formation
 from sentiment import get_emotion
 from nasa import nasa_picture
 
