@@ -150,7 +150,7 @@ def home():
         nyt=nyt_results(),
         twitter_trends=get_trends(),
         nasa=nasa_picture(),
-        task_lists=get_task_lists(current_user.id),
+        task_lists=get_task_lists(current_user.username),
     )
 
 
@@ -158,11 +158,9 @@ def home():
 def add_task_list():
 
     if flask.request.method == "POST":
-        user = current_user.id
+        user = current_user.username
         title = request.form.get("task_list_title")
         content = request.form.get("task_entry")
-        print(title)
-        print(content)
         task_list_information = Task(title=title, content=content, user=user)
 
         db.session.add(task_list_information)
@@ -182,10 +180,22 @@ def display_task_list():
 
 
 @app.route("/delete_task_list", methods=["GET", "POST"])
-def delete_task_list():
+def delete_list_of_tasks():
+    """this function deletes a task list"""
+    if request.method == "POST":
+        task_list_id = int(flask.request.form["delete_task_list"])
+        print("The Deleted Task List ID is: ", task_list_id)
+        """function located in database_function.py"""
+        delete_task_list(task_list_id)
+    return flask.redirect(flask.url_for("home"))
+
+
+@app.route("/edit_task", methods=["GET", "POST"])
+def task_editor():
+    """this function edits a task"""
     if flask.request.method == "POST":
-        index = request.form.get("delete_task_list")
-        delete_task_list(index)
+        content = request.form.get("edit_task")
+        print(content)
     return flask.redirect(flask.url_for("home"))
 
 

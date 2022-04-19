@@ -24,12 +24,11 @@ def delete_task_list(task_list_id):
     task_list = Task.query.filter_by(id=task_list_id).first()
     if task_list:
         db.session.delete(task_list)
-        db.session.commit
+        db.session.commit()
 
 
-def get_task_lists(user_id):
+def get_task_lists(username):
     """function to get tasklists from database by user ID"""
 
-    task_lists = Task.query.filter_by(id=user_id).all()
-    print(task_lists)
-    return task_lists
+    tasks = Task.query.filter_by(user=username).all()
+    return tasks
