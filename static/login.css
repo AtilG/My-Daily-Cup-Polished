@@ -32,13 +32,13 @@
 }
 
 #loginLogo {
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 900px;
+    max-height: 900px;
     height: auto;
     width: auto;
 }
 
-html {
+html, body {
     height:100%;
 }
 
