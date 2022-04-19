@@ -22,13 +22,11 @@ from database_functions import (
     get_task_lists,
     delete_task_list,
 )
-from models import db, Joes, Entry
 
 from fun_fact import fun_fact
 from nyt import nyt_results
 
 from twitter import get_trends
-from nasa import nasa_picture
 from formatDate import formation
 from sentiment import get_emotion
 from nasa import nasa_picture
@@ -80,10 +78,10 @@ def login():
             if check_password_hash(user_info.password, password):
                 login_user(user_info)
                 return flask.redirect(flask.url_for("home"))
-                # if the user isn't logged in, the password is incorrect
-                flask.flash("Password is not correct. Please try again.")
+            # if the user isn't logged in, the password is incorrect
+            flask.flash("Password is not correct. Please try again.")
         # if the user does not exist, redirect to signup
-        except LookupError:
+        except:
             flask.flash("No user with that email found. Register below!")
             return flask.redirect(flask.url_for("signup"))
     return render_template(
@@ -116,7 +114,7 @@ def signup():
             flask.flash("You have successfully registered.")
             return flask.redirect(flask.url_for("login"))
         # if it throws an error, some input has conflicted with the rules
-        except LookupError:
+        except:
             flask.flash(
                 "Something went wrong. Either that username is taken or \
                 you have left an entry blank. Please try again."
@@ -150,21 +148,21 @@ def home():
         nyt=nyt_results(),
         twitter_trends=get_trends(),
         nasa=nasa_picture(),
-        task_lists=get_task_lists(current_user.id),
+        task_lists=get_task_lists(current_user.username),
     )
 
 
 @app.route("/add_task_list", methods=["GET", "POST"])
 def add_task_list():
-
+    """In this method we will add task to our task list"""
     if flask.request.method == "POST":
-        user = current_user.id
+        user = current_user.username
         title = request.form.get("task_list_title")
         content = request.form.get("task_entry")
-        print(title)
-        print(content)
-        task_list_information = Task(title=title, content=content, user=user)
 
+        task_list_information = Task(
+            title=title, content=content, user=current_user.username
+        )
         db.session.add(task_list_information)
         db.session.commit()
 
@@ -173,7 +171,7 @@ def add_task_list():
 
 @app.route("/display_task_lists", methods=["GET", "POST"])
 def display_task_list():
-
+    """In this method we will display task in our task list"""
     task_lists = get_task_lists(current_user.id)
 
     return render_template(
@@ -182,10 +180,22 @@ def display_task_list():
 
 
 @app.route("/delete_task_list", methods=["GET", "POST"])
-def delete_task_list():
+def delete_task():
+    """In this method we will remove task from our task list"""
+    if request.method == "POST":
+        task_list_id = int(flask.request.form["delete_task_list"])
+        print("The Deleted Task List ID is: ", task_list_id)
+        """function located in database_function.py"""
+        delete_task_list(task_list_id)
+    return flask.redirect(flask.url_for("home"))
+
+
+@app.route("/edit_task", methods=["GET", "POST"])
+def task_editor():
+    """this function edits a task"""
     if flask.request.method == "POST":
-        index = request.form.get("delete_task_list")
-        delete_task_list(index)
+        content = request.form.get("edit_task")
+        print(content)
     return flask.redirect(flask.url_for("home"))
 
 
@@ -199,21 +209,19 @@ def users_entries():
     # adding tone aspect for each entry
     tones = []
     if len(prev_entries) == 0:
-        print("here")
         flask.flash(
             "Sorry, you have no entries at the moment, please add one at the bottom."
         )
         return redirect(flask.url_for("home"))
-    else:
-        for entry in prev_entries:
-            tones.append(get_emotion(entry))
-        return render_template(
-            "entries.html",
-            user_entries=prev_entries,
-            length=len(prev_entries),
-            tones=tones,
-            num_tones=len(tones),
-        )
+    for entry in prev_entries:
+        tones.append(get_emotion(entry))
+    return render_template(
+        "entries.html",
+        user_entries=prev_entries,
+        length=len(prev_entries),
+        tones=tones,
+        num_tones=len(tones),
+    )
 
 
 @app.route("/delete_entry", methods=["GET", "POST"])

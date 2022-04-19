@@ -184,21 +184,20 @@
 
     <!-- task form added. issue with columns duplicating on webpage refresh. -->
     <h3>Here are your current task lists!</h3>
-    <div id="tasks">
-
+    <!-- need to figure out how to make value the task id -->
+    <div class="task_list_display">
         {% for task in task_lists: %}
-        <div class="task_list_display">
-            <p>Task List: <b>{{task.title}}</b></p>
-            <p>Tasks: <b> {{task.content}}</b></p>
-            <form action="/home" method="POST">
-                <input class="form-control" type="text" placeholder="Add task" name="task_entry">
-                <input type="submit" value="+">
-            </form>
+        <p>Task List: <b>{{task.title}}</b>
+        <form action="/delete_task_list" method="POST">
+            <button type="submit" value={{task.id}} name="delete_task_list"> Delete Task List</button>
+        </form>
+        </p>
 
-            <form action="/home" method="POST">
-                <button type="submit" value=3 name="delete_task_entry"> Delete Task</button>
-            </form>
-        </div>
+        <p>Tasks: <b> {{task.content}}</b>
+        <form action="/edit_task" method="POST">
+            <button type="submit" value={{task.content}} name="edit_task"> Edit Tasks</button>
+        </form>
+        </p>
         {% endfor %}
 
     </div>
