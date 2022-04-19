@@ -29,6 +29,12 @@ def delete_task_list(task_list_id):
 
 def get_task_lists(username):
     """function to get tasklists from database by user ID"""
-
+    tasks = Task.query.filter_by(user=username).all()
+    return tasks
+"""
+    task_lists = Task.query.filter_by(id=user_id).all()
+    print(task_lists)
+    return task_lists
+"""
     tasks = Task.query.filter_by(user=username).all()
     return tasks
