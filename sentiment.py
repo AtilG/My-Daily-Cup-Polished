@@ -1,4 +1,4 @@
-'''This file will handle our sentimental API'''
+"""This file will handle our sentimental API"""
 import os
 import paralleldots
 from paralleldots import config
@@ -11,7 +11,7 @@ config.set_api_key(os.getenv("SENTIMENT_KEY"))
 
 # get the emotion of the text
 def get_emotion(entry):
-    '''This method will get the emotion for an individual journal entry'''
+    """This method will get the emotion for an individual journal entry"""
     tones = []
     emotions = paralleldots.emotion(entry)
 
@@ -37,7 +37,7 @@ def get_emotion(entry):
 
     # correcting the 'fear' to 'fearful' for a better sound
     for tone in tones:
-        if tone == 'Fear':
-            tone = 'Fearful'
+        if tone == "Fear":
+            tone = "Fearful"
 
     return tones
