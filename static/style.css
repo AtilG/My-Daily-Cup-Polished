@@ -1,5 +1,7 @@
-#test {
-    display: block;
+#logo {
+    width: 50%;
+    height: 50%;
+
 }
 
 #weather_info {
@@ -26,6 +28,24 @@
     display: none;
     border: 1px solid black;
     background-color: rgb(180, 179, 179);
+}
+
+#signup {
+    background-color: #CCB4A5;
+    text-align: center;
+}
+
+#signup .card {
+    background-color: #BF9583;
+}
+
+.btn-primary {
+    background-color: #65042E !important;
+    border-color: #65042E !important
+}
+
+.btn {
+    background-color: #65042E !important;
 }
 
 .center {
