@@ -76,13 +76,13 @@
                             <h4 class="col">{{user_entries[i].title}}</h4>
                             <form action="/delete_entry" method='POST'>
                                 <button class="btn btn-primary btn-sm col ml-auto" type='submit' id='deepBrown'
-                                    name=" Delete" value={{user_entries[i].id}}> X
+                                    name="Delete" value={{user_entries[i].id}}> X
                                 </button>
                             </form>
                         </div>
 
                         <div class="card-body" id='brownish-pink'>
-                            
+
                             <p class="card-text">{{user_entries[i].content}}</p>
                             <div class="row h-100 justify-content-end">
                                 <p class="tones p-2">You sound:
@@ -94,7 +94,7 @@
                                     {% endif %}
                                     {% endfor %}
                                 </p>
-                                
+
                                 <h6 class="card-title ml-auto p-2">Posted: {{user_entries[i].timestamp}}</h6>
                             </div>
                         </div>
