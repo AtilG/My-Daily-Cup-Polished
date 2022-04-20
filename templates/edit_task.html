@@ -3,70 +3,80 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="../static/edit_task.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href={{ url_for( 'static' , filename='style.css' ) }} />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="static/functions.js"></script>
-    <script>
-        window.onload = function () {
-            const ids = ["weather_info", "fun_fact", "nyt_result", "twitter", "nasa", "settings"]
-            const localList = ["w", "f", "n", "t", "nasa", "s"]
-            var length = ids.length;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&family=Oleo+Script:wght@400;700&family=Outfit:wght@100;200&family=Rubik:wght@300;400&family=Square+Peg&family=Ubuntu:wght@300;400&display=swap"
+        rel="stylesheet">
+        
 
-            //iterate for all ids in the list
-            for (var iter = 0; iter < length; iter++) {
-                console.log(typeof ids[iter]);
-                var wid = document.getElementById(ids[iter]);
-                if (localStorage.getItem(localList[iter]) === 'true') {
-                    console.log("list", localList[iter]);
-                    wid.style.display = "none";
-                }
-                else {
-                    wid.style.display = "block";
-                }
-            }
-        }
-    </script>
+
+    <nav id="nav" class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            <img id="logo" src="http://172.25.227.107:8080/static/mug_logo.png" width="50" height="50" alt="">
+        </a>
+        <!-- For when the window is minimized.-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('users_entries') }}">Entries</a>
+                </li>
+
+            </ul>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link my-2 my-lg-0" href="{{ url_for('signout') }}">Log Out</a>
+            </div>
+        </div>
+    </nav>
 </head>
 
 <body>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-            <b>{{message}}</b>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <div id="nav">
-        <a href="{{ url_for('home') }}"> Home</a>
-        <a href="{{ url_for('users_entries') }}"> Entries</a>
-
-        <a href="" onClick="toggleSettings()"> Settings</a>
-
-        <a href="{{ url_for('signout') }}"> Log Out</a>
+    {% for task in current_task_list: %}
+    <div class="container-fluid" id="backgroundColor">
+        <div class="row h-100 w-100 m-0 ">
+            <div class="col-xl-6 h-75  my-auto mx-auto">
+                <div class="row-100">
+                    <div id="editSquare" class="col-lg-12">
+                        <div id="editTaskForm" class="p-4">
+                            <h1 id="updateTaskListText" class="text-center">Update Your Tasks for Your "{{task.title}}"
+                                Task List!</h1>
+                            <form action="/edit_task/{{task.id}}" method="POST">
+                                <textarea id="task_edit" name="task_edit" rows=5 cols=33
+                                    class="form-control">{{task.content}}</textarea>
+                                <input type="submit" value="Save" name="save_task_entry" id="btn-submitEdit"
+                                    class="form-control">
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    </div>
+    {% endfor %}
+</body>
 
-
-
-
-
-
-
-        <!-- forms for task list entry below -->
-
-      
-        <div id="edit_tasks">
-            {% for task in current_task_list: %}
-            <h3>Update Your Tasks for Your "{{task.title}}" Task List!</h3>
-            <form action="/edit_task/{{task.id}}" method="POST">
-                <textarea id = "task_edit" name = "task_edit" rows = 5 cols = 33>{{task.content}}</textarea>
-                <input type="submit" value="Save" name = "save_task_entry">
-            </form>
-            {% endfor %}
-       </div>
-   </body>
-   
-   </html>
+</html>
