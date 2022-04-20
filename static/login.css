@@ -1,13 +1,25 @@
+a {
+    color: black !important;
+}
+
+a:hover {
+    color: black !important;
+    opacity: 0.5;
+}
 
 .login {
-    height:100%;
+    height: 100%;
 }
 
 #loginSquare {
     background-color: #be9583;
-    height: auto;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 50%;
     width: auto;
     border-radius: 25px;
+}
+#loginTaskForm {
+    margin-top: 15%;
 }
 
 #enterCredentials {
@@ -25,6 +37,10 @@
     font-size: 16px;
 }
 
+#btn-login:hover {
+    opacity: 0.8;
+}
+
 #loginBrandName {
     font-family: 'Oleo Script', cursive;
     font-size: 450%;
@@ -32,12 +48,13 @@
 }
 
 #loginLogo {
-    height: 700px;
+    height: 500px;
     width: auto;
 }
 
-html, body {
-    height:100%;
+html,
+body {
+    height: 100%;
 }
 
 .right-color {
@@ -49,5 +66,5 @@ html, body {
 }
 
 .form-group {
-    padding:  10px 0
+    padding: 10px 0
 }
