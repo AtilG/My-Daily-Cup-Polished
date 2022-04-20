@@ -28,6 +28,8 @@ a:hover {
 
 #enterCredentials {
     color: #65402E;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
 }
 
 #btn-login {
