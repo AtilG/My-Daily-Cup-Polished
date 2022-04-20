@@ -66,6 +66,12 @@
 
 #signup .card {
     background-color: #BF9583;
+    background-color: #be9583;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 50%;
+    width: auto;
+    border-radius: 25px;
+    border-style:none;
 }
 
 .btn-primary {
@@ -76,6 +82,9 @@
 .btn {
     background-color: #65042E !important;
 }
+.btn:hover {
+    opacity: 0.8;
+}
 
 .center {
     text-align: center;
@@ -83,9 +92,4 @@
 
 .button {
     margin: 5px;
-}
-
-.btn-primary {
-    background-color: #65042E !important;
-    border-color: #65042E !important
 }
