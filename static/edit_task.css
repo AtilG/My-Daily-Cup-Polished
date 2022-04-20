@@ -1,8 +1,10 @@
+
 #nav {
     background-color: #65402E;
     font-family: 'Outfit', sans-serif;
     font-size: 20px;
 }
+
 
 #updateTaskListText {
     color: white;
@@ -11,7 +13,7 @@
 #backgroundColor {
     background: #ccb4a5;
     color: white;
-    height: 100%;
+    height:100%;
     width: 100%;
 }
 
@@ -31,11 +33,10 @@
     background-color: #be9583;
     height: auto;
     width: auto;
-    border-radius: 25px;
+    border-radius: 25px;   
 }
 
 
-html,
-body {
-    height: 100%;
+html, body {
+    height:100%;
 }
