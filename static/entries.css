@@ -12,6 +12,9 @@ h1 {
     font-family: 'Oleo Script', cursive;
     padding-top: 5px;
 }
+h4 {
+    color: #5e4339;
+}
 
 body {
     background-color: #AAA898 !important;

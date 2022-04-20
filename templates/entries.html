@@ -25,7 +25,7 @@
 
     <nav id="nav" class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="{{ url_for('home') }}">
-            <img id="logo" src="static/mug_logo.png" width="50" height="50" alt="">
+            <img id="logo" src="../static/mug_logo.png" width="50" height="50" alt="">
         </a>
         <!-- For when the window is minimized.-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -35,10 +35,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for('users_entries') }}">Entries</a>
                 </li>
 
