@@ -6,6 +6,7 @@
 
 #nav {
     background-color: #65402E;
+    font-family: 'Outfit', sans-serif;
 }
 
 #weather_info {
@@ -87,5 +88,4 @@
 .btn-primary {
     background-color: #65042E !important;
     border-color: #65042E !important
-
 }

@@ -1,5 +1,5 @@
 body {
-    background-color: #CCB4A5;
+    background-color: #dfc7b8bd;
 }
 
 a {
@@ -10,7 +10,9 @@ a:hover {
     color: black;
     opacity: 0.5;
 }
-
+h3 {
+    font-family: 'Outfit', sans-serif;
+}
 #pcontent {
     margin-left: 10px;
     margin-right: 10px;
@@ -45,6 +47,9 @@ a:hover {
     text-align: center;
 
 }
+#lists {
+    font-family: 'Outfit', sans-serif;
+}
 
 #tasks {
     text-align: center;
@@ -61,6 +66,7 @@ a:hover {
     border-radius: 5px;
     margin: 10px;
     padding-top: 10px;
+    background-color: #efefef
 }
 
 .sidebar-item {
