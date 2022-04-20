@@ -102,8 +102,8 @@
     {% endwith %}
 
 
-    <div class="container">
-        <h1 style="font-family: 'Oleo Script', cursive;">Hello, {{user}}</h1>
+    <div class="container" style="width:100%;">
+        <h1 style="font-family: 'Oleo Script', cursive; padding-top:5px;">Hello, {{user}}</h1>
         <div class="row py-3">
             <div class="col-3 order-2" id="sticky-sidebar">
                 <div id="sidebar" class="sticky-top d-none d-xl-block">
@@ -159,44 +159,63 @@
                     </div>
                 </ul>
                 <hr />
-                <div id="maincontent">
+                <div id="maincontent row">
                     <h3>Create new entry</h3>
                     <form action="/add_entry" method="POST">
-                        <input type="text" class="form-control" placeholder="Title" name="title">
-                        <input type="text" class="form-control" placeholder="How are you feeling today?" name="entry">
-                        <input type="submit" value="Post">
+                        <input type="text" class="form-control col" placeholder="Title" name="title">
+                        <input type="text" class="form-control col" placeholder="How are you feeling today?"
+                            name="entry">
+                        <div class="d-flex">
+                            <input class="btn btn-primary btn-sm ml-auto p-2" type="submit" value="Post">
+                        </div>
                     </form>
                 </div>
                 <hr />
-                <div id="add_task_list">
+                <div id="add_task_list row">
+
                     <h3>Create new task list</h3>
+
                     <form action="/add_task_list" method="POST">
-                        <input type="text" class="form-control" placeholder="New task list" name="task_list_title">
+                        <input type="text" class="form-control col " placeholder="New task list" name="task_list_title">
                         <!-- <small id="emailHelp" class="form-text text-muted">Give your task list a name!</small> -->
-                        <input type="text" class="form-control" placeholder="First task" name="task_entry">
-                        <input type="submit" value="Add">
+                        <input type="text" class="form-control col" placeholder="First task" name="task_entry">
+                        <div class="d-flex">
+                            <input class="btn btn-primary btn-sm ml-auto p-2" type="submit" value="Add">
+                        </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
     <hr />
 
-    </div>
-    <h3>Here are your current task lists!</h3> 
-    <div class="task_list_display">
-        {% for task in task_lists: %}
-            <p>Task List: <b>{{task.title}}</b>
-                <form action = "/delete_task_list" method = "POST">
-                <button type = "submit" value = {{task.id}} name = "delete_task_list"> Delete {{task.title}} Task List</button>
-            </form>
-            </p>
+    <div id="lists" class="container">
+        <h3>My Lists</h3>
+        <div class="row">
+            {% for task in task_lists: %}
+            <div class="task_list_display col-6 col-sm-3">
+                <div class="d-flex">
+                    <p class="task_title p-2"><b>{{task.title}}</b>
+                    <form class="ml-auto p-2" action="/delete_task_list" method="POST">
+                        <button class="btn btn-primary btn-sm" type="submit" value={{task.id}}
+                            name="delete_task_list">X</button>
+                    </form>
+                    </p>
+                </div>
 
-            <p>Tasks: <b> <a href ="{{url_for('edit_task', id=task.id)}}">{{task.content}}</a></b>
-            </p>
-   
-        {% endfor %}
+                <hr />
 
+
+                <p>{{task.content}}
+                <form action="/edit_task" method="POST">
+                    <button class="btn btn-primary btn-sm" type="submit" value={{task.content}} name="edit_task"> Edit
+                        Tasks</button>
+                </form>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 
