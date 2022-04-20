@@ -1,3 +1,11 @@
+
+#nav {
+    background-color: #65402E;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+}
+
+
 #updateTaskListText {
     color: white;
 }
@@ -32,8 +40,3 @@
 html, body {
     height:100%;
 }
-
-
-
-
-
