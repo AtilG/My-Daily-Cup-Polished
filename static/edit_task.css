@@ -1,0 +1,39 @@
+#updateTaskListText {
+    color: white;
+}
+
+#backgroundColor {
+    background: #ccb4a5;
+    color: white;
+    height:100%;
+    width: 100%;
+}
+
+
+#btn-submitEdit {
+    background-color: #65442E;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#editSquare {
+    background-color: #be9583;
+    height: auto;
+    width: auto;
+    border-radius: 25px;   
+}
+
+
+html, body {
+    height:100%;
+}
+
+
+
+
+

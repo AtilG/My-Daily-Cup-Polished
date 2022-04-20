@@ -208,10 +208,10 @@
 
 
                 <p>{{task.content}}
-                <form action="/edit_task" method="POST">
-                    <button class="btn btn-primary btn-sm" type="submit" value={{task.content}} name="edit_task"> Edit
-                        Tasks</button>
-                </form>
+      
+                <a href="{{url_for('edit_task', id=task.id)}}" class="btn btn-primary btn-s">
+                    Edit Tasks
+                </a>
                 </p>
             </div>
             {% endfor %}
