@@ -190,13 +190,25 @@ def delete_task():
     return flask.redirect(flask.url_for("home"))
 
 
-@app.route("/edit_task", methods=["GET", "POST"])
-def task_editor():
+@app.route("/edit_task/<int:id>", methods=["GET", "POST"])
+def edit_task(id):
     """this function edits a task"""
+    current_task_list = Task.query.filter_by(id=id).all()
+
+    task_to_edit = Task.query.get_or_404(id)
     if flask.request.method == "POST":
-        content = request.form.get("edit_task")
-        print(content)
-    return flask.redirect(flask.url_for("home"))
+        task_to_edit.content = request.form.get("task_edit")
+        try:
+            db.session.commit()
+            return redirect("/home")
+        except:
+            return "There was a problem updating that..."
+    else:
+        return render_template(
+            "edit_task.html",
+            task_to_edit=task_to_edit,
+            current_task_list=current_task_list,
+        )
 
 
 @app.route("/view_entries", methods=["GET", "POST"])
