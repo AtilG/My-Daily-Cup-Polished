@@ -18,13 +18,15 @@
 
 
 <body id="signup">
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  {% for message in messages %}
-  <b>{{ message }}</b>
-  {% endfor %}
-  {% endif %}
-  {% endwith %}
+ {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div id="flash">
+                <b>{{ message }}</b>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
 
   <section class="vh-100">
     <div class="container py-5 h-100">
