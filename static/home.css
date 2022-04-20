@@ -55,7 +55,11 @@ h3 {
 #lists {
     font-family: 'Outfit', sans-serif;
 }
-
+#flash {
+    background-color: #66171a;
+    color: white;
+    padding: 10px;
+}
 #tasks {
     text-align: center;
     width: 100%;

@@ -37,7 +37,11 @@ body {
 .tones {
     font-size: 15px;
 }
-
+#flash {
+    background-color: #66171a;
+    color: white;
+    padding: 10px;
+}
 #brown {
     background-color: brown;
     color: white;

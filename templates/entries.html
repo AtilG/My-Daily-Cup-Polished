@@ -52,16 +52,19 @@
 
 <body>
 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <b>{{message}}</b>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
+
 
 
     <div class="container-fluid" id="beige">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div id="flash">
+            <b>{{ message }}</b>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
 
         <h1>My Entries</h1>
         <div id="entry_Container">
