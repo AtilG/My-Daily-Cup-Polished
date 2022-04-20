@@ -12,6 +12,7 @@ h1 {
     font-family: 'Oleo Script', cursive;
     padding-top: 5px;
 }
+
 h4 {
     color: #5e4339;
 }
@@ -60,6 +61,7 @@ body {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-bottom: 0px;
+    font-family: 'Outfit', sans-serif;
 }
 
 #light-brownish-pink {
@@ -74,4 +76,8 @@ body {
     align-items: center;
     padding: 20px;
     border-radius: 5px;
+}
+
+#card_footer {
+    align-items: start;
 }
