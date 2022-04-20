@@ -25,7 +25,7 @@
 
     <nav id="nav" class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="{{ url_for('home') }}">
-            <img id="logo" src="static/mug_logo.png" width="50" height="50" alt="">
+            <img id="logo" src="../static/mug_logo.png" width="50" height="50" alt="">
         </a>
         <!-- For when the window is minimized.-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -35,10 +35,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for('users_entries') }}">Entries</a>
                 </li>
 
@@ -71,7 +71,7 @@
             <div class="row">
                 {% endif %}
                 <div class="col-6">
-                    <div class="entry card text-white ">
+                    <div class="entry card text-white h-100">
                         <div class="card-header" id="light-brownish-pink">
                             <h4 class="col">{{user_entries[i].title}}</h4>
                             <form action="/delete_entry" method='POST'>
@@ -82,9 +82,9 @@
                         </div>
 
                         <div class="card-body" id='brownish-pink'>
-
+                            
                             <p class="card-text">{{user_entries[i].content}}</p>
-                            <div class="row">
+                            <div class="row h-100 justify-content-end">
                                 <p class="tones p-2">You sound:
                                     {% for j in range(0,tones[i]|length) : %}
                                     {% if j == tones[i]|length - 1 %}
@@ -94,7 +94,7 @@
                                     {% endif %}
                                     {% endfor %}
                                 </p>
-
+                                
                                 <h6 class="card-title ml-auto p-2">Posted: {{user_entries[i].timestamp}}</h6>
                             </div>
                         </div>
