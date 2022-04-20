@@ -5,6 +5,9 @@
     font-size: 20px;
 }
 
+#logo:hover {
+    opacity: 0.5;
+}
 
 #updateTaskListText {
     color: white;
