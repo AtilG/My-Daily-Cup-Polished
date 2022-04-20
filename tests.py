@@ -3,6 +3,7 @@ import unittest
 from unittest import mock
 from unittest.mock import MagicMock, patch
 from openweather import get_weather
+from nasa import nasa_picture
 from twitter import get_trends
 import json
 import os

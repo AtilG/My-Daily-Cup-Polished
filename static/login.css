@@ -1,0 +1,53 @@
+
+.login {
+    height:100%;
+}
+
+#loginSquare {
+    background-color: #be9583;
+    height: auto;
+    width: auto;
+    border-radius: 25px;
+}
+
+#enterCredentials {
+    color: #65402E;
+}
+
+#btn-login {
+    background-color: #65442E;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#loginBrandName {
+    font-family: 'Oleo Script', cursive;
+    font-size: 450%;
+    color: #be9583;
+}
+
+#loginLogo {
+    height: 700px;
+    width: auto;
+}
+
+html, body {
+    height:100%;
+}
+
+.right-color {
+    background: #65402E;
+}
+
+.left-color {
+    background: #ccb4a5;
+}
+
+.form-group {
+    padding:  10px 0
+}
