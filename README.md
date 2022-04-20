@@ -1,4 +1,4 @@
-Heroku Link: https://my-daily-cup.herokuapp.com/
+Heroku Link: https://my-daily-cup-polished.herokuapp.com/
 # My-Daily-Cup
 A personalized blog-based web application.
 
