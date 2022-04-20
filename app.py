@@ -189,9 +189,10 @@ def delete_task():
         delete_task_list(task_list_id)
     return flask.redirect(flask.url_for("home"))
 
+
 @app.route("/edit_task/<int:id>", methods=["GET", "POST"])
 def edit_task(id):
-    '''this function edits a task'''
+    """this function edits a task"""
     current_task_list = Task.query.filter_by(id=id).all()
 
     task_to_edit = Task.query.get_or_404(id)
@@ -199,14 +200,15 @@ def edit_task(id):
         task_to_edit.content = request.form.get("task_edit")
         try:
             db.session.commit()
-            return redirect('/home')
+            return redirect("/home")
         except:
             return "There was a problem updating that..."
-    else: 
-        return render_template("edit_task.html",
-            task_to_edit = task_to_edit,
-            current_task_list = current_task_list)
-    
+    else:
+        return render_template(
+            "edit_task.html",
+            task_to_edit=task_to_edit,
+            current_task_list=current_task_list,
+        )
 
 
 @app.route("/view_entries", methods=["GET", "POST"])

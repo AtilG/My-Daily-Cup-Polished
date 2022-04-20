@@ -38,5 +38,3 @@ def get_task_lists(username):
     """
     tasks = Task.query.filter_by(user=username).all()
     return tasks
-
-
