@@ -4,6 +4,11 @@
 
 }
 
+#flash {
+    background-color: #66171a;
+    color: white;
+    padding: 10px;
+}
 #nav {
     background-color: #65402E;
     font-family: 'Outfit', sans-serif;
