@@ -10,6 +10,10 @@ a:hover {
 .login {
     height: 100%;
 }
+#form_title {
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+}
 #flash {
     background-color: #66171a;
     color: white;
