@@ -2,9 +2,7 @@ Heroku Link: https://my-daily-cup-polished.herokuapp.com/
 # My-Daily-Cup
 A personalized blog-based web application.
 
-Please be patient, this application is still under development.
-
-Make sure to create your own branch so we can avoid issues with conflicting code!
+![My Daily Cup Image](https://github.com/AtilG/My-Daily-Cup-Polished/blob/main/static/readme.png)
 
 # Openweather API DOC
 'https://openweathermap.org/current'
