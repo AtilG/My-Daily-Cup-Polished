@@ -19,7 +19,6 @@ def get_trends():
 
     # getting authorization for our keys, then finding the trending topics
     trends = tweepy.API(auth).get_place_trends(id=woeid)
-
     trends = trends[0]["trends"]
 
     # This will find the top 5 trending topics
@@ -31,7 +30,3 @@ def get_trends():
         if i == 5:
             break
     return trending_topics
-
-
-if __name__ == "__main__":
-    get_trends()

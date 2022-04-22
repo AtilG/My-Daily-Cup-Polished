@@ -66,10 +66,26 @@
         {% endif %}
         {% endwith %}
 
-        <h1>My Entries</h1>
+        <div class='row'>
+            <h1 class= 'col-xl-11 col-lg-11 col-md-10 col-sm-10'>My Entries</h1>
+            <div class="dropdown col-lg-1 col-md-2 col-sm-1 mt-3 p-1">
+                <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Filter By
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    {%  for emotion in possible_emotions:  %}
+                        <form action="/view_entries" method='POST'>
+                            <button class="btn btn-light btn-sm col ml-auto" type='submit'
+                                name="sort_key" value={{emotion}}> {{emotion}}
+                            </button>
+                        </form>
+                    {%  endfor  %}
+                </ul>
+              </div>
+        </div>
         <div id="entry_Container">
 
             {% for i in range(0,length) : %}
+
             {% if (i%2)==0 %}
             <div class="row">
                 {% endif %}
