@@ -15,7 +15,8 @@ def sort_emotions(entries, sort_key, tones):
         return entries, tones
     new_entries = []
     new_tones = []
-    for i in range(0, len(entries)):
+    length = len(entries)
+    for i in range(length):
         if sort_key in tones[i]:
             new_entries.append(entries[i])
             new_tones.append(tones[i])
