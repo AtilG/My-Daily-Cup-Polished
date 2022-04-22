@@ -15,14 +15,9 @@ def sort_emotions(entries, sort_key, tones):
         return entries, tones
     new_entries = []
     new_tones = []
-    for i in range(0, len(entries)):
+    length = len(entries)
+    for i in range(length):
         if sort_key in tones[i]:
             new_entries.append(entries[i])
             new_tones.append(tones[i])
     return new_entries, new_tones
-
-if __name__=='__main__':
-    entry = ['I am well', 'Today was a wonderful day', 'Today was the worst day of my life.']
-    tones = [['Excited'],['Excited', 'Happy'], ['sad']]
-    commence, pop = sort_emotions(entry, 'Excited', tones)
-    print(commence)
