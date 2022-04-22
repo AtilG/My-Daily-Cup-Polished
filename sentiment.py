@@ -17,7 +17,7 @@ def get_emotion(entry):
 
     # access data of each emotion
     emotions = emotions["emotion"].items()
-    #print(emotions)
+    # print(emotions)
 
     maximum = {"emotion": "None", "data": -1}  # hold highest emotion
     for data in emotions:
@@ -36,6 +36,6 @@ def get_emotion(entry):
             tones.append("Bored")
 
     # correcting the 'fear' to 'fearful' for a better sound
-    tones = [tone.replace('Fear', 'Fearful') for tone in tones]
-    
+    tones = [tone.replace("Fear", "Fearful") for tone in tones]
+
     return tones
