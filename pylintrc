@@ -1,0 +1,3 @@
+[master]
+disable=
+    C0301, #Line too long, the lines sort of have to be long for the unit test in my opinion. I didn't want the file to be like 2000 lines

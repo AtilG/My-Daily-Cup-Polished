@@ -47,17 +47,19 @@
     padding: 50px;
 }
  
+
+
 #form_title {
     font-family: 'Rubik', sans-serif;
     font-weight: bold;
 }
- 
+
 #flash {
     background-color: #66171a;
     color: white;
     padding: 10px;
 }
- 
+
 #nav {
     background-color: #65402E;
     font-family: 'Outfit', sans-serif;

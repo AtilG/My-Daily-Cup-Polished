@@ -18,13 +18,15 @@
 
 
 <body id="signup">
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  {% for message in messages %}
-  <b>{{ message }}</b>
-  {% endfor %}
-  {% endif %}
-  {% endwith %}
+ {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div id="flash">
+                <b>{{ message }}</b>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
 
   <section class="vh-100">
     <div class="container py-5 h-100">
@@ -36,7 +38,7 @@
 
                 <div class="align-items-center mb-6 pb-1">
                   <i class="fas fa-cubes fa-2x me-3" style="color: #0c0c0c;"></i>
-                  <span style="color:#65402E;" class="h1 fw-bold ">My Daily Cup</span>
+                  <span id="form_title" style="color:#65402E;" class="h1 fw-bold ">My Daily Cup</span>
                 </div>
 
                 <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign up for your account</h5>
