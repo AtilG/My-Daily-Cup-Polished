@@ -16,11 +16,9 @@ def nyt_results():
         f"https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key={NYT_KEY}"
     )
     responses_json = responses.json()
-    #print(responses_json)
+    # print(responses_json)
     for items in range(5):
         article_name.append(responses_json["results"][items]["title"])
         article_url.append(responses_json["results"][items]["url"])
-    
-    return zip(article_name, article_url)
 
-    
+    return zip(article_name, article_url)

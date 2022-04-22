@@ -1,4 +1,3 @@
-
 """In this file we will run all of our unit tests"""
 import unittest
 from unittest.mock import MagicMock, patch
