@@ -12,7 +12,7 @@ from flask_login import (
     logout_user,
     current_user,
 )
- 
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import find_dotenv, load_dotenv
 from openweather import get_weather
@@ -23,18 +23,18 @@ from database_functions import (
     get_task_lists,
     delete_task_list,
 )
- 
+
 from fun_fact import fun_fact
 from nyt import nyt_results
- 
+
 from twitter import get_trends
 from formatDate import formation
 from sentiment import get_emotion
 from nasa import nasa_picture
- 
- 
+
+
 load_dotenv(find_dotenv())
- 
+
 # Create app, configure db
 app = Flask(__name__)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
@@ -45,28 +45,30 @@ if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
         "SQLALCHEMY_DATABASE_URI"
     ].replace("postgres://", "postgresql://")
- 
+
 db.init_app(app)
 with app.app_context():
     db.create_all()
- 
+
 # initializing login feature
 login_manager = LoginManager()
 login_manager.init_app(app)
- 
- 
+
+
 @login_manager.user_loader
 def load_user(user_id):
     """Loads user ID of user"""
     return Joes.query.get(int(user_id))
- 
+
+
 @app.route("/", methods=["GET", "POST"])
 def landing():
     # generate random welcome tags
     tags = ["Top of the morning!", "Take your daily sip.", "Start your day off right."]
     i = random.randrange(0, len(tags))
     return render_template("landing.html", tag=tags[i])
- 
+
+
 # route to log a user in
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -93,8 +95,8 @@ def login():
     return render_template(
         "login.html",
     )
- 
- 
+
+
 # route to allow a user to register
 # add auth back later
 @app.route("/signup", methods=["GET", "POST"])
@@ -127,8 +129,8 @@ def signup():
             )
             return flask.redirect(flask.url_for("signup"))
     return render_template("signup.html")
- 
- 
+
+
 # route to allow user to sign out
 @app.route("/signout")
 @login_required
@@ -137,8 +139,8 @@ def signout():
     logout_user()
     flask.flash("You have successfully logged out.")
     return flask.redirect(flask.url_for("login"))
- 
- 
+
+
 # route to user's home page
 @app.route("/home")
 @login_required
@@ -156,8 +158,8 @@ def home():
         nasa=nasa_picture(),
         task_lists=get_task_lists(current_user.username),
     )
- 
- 
+
+
 @app.route("/add_task_list", methods=["GET", "POST"])
 def add_task_list():
     """In this method we will add task to our task list"""
@@ -165,26 +167,26 @@ def add_task_list():
         user = current_user.username
         title = request.form.get("task_list_title")
         content = request.form.get("task_entry")
- 
+
         task_list_information = Task(
             title=title, content=content, user=current_user.username
         )
         db.session.add(task_list_information)
         db.session.commit()
- 
+
     return flask.redirect(flask.url_for("home"))
- 
- 
+
+
 @app.route("/display_task_lists", methods=["GET", "POST"])
 def display_task_list():
     """In this method we will display task in our task list"""
     task_lists = get_task_lists(current_user.id)
- 
+
     return render_template(
         "home.html", task_lists=task_lists, all_task_lists=len(task_lists)
     )
- 
- 
+
+
 @app.route("/delete_task_list", methods=["GET", "POST"])
 def delete_task():
     """In this method we will remove task from our task list"""
@@ -194,13 +196,13 @@ def delete_task():
         """function located in database_function.py"""
         delete_task_list(task_list_id)
     return flask.redirect(flask.url_for("home"))
- 
- 
+
+
 @app.route("/edit_task/<int:id>", methods=["GET", "POST"])
 def edit_task(id):
     """this function edits a task"""
     current_task_list = Task.query.filter_by(id=id).all()
- 
+
     task_to_edit = Task.query.get_or_404(id)
     if flask.request.method == "POST":
         task_to_edit.content = request.form.get("task_edit")
@@ -215,8 +217,8 @@ def edit_task(id):
             task_to_edit=task_to_edit,
             current_task_list=current_task_list,
         )
- 
- 
+
+
 @app.route("/view_entries", methods=["GET", "POST"])
 @login_required
 def users_entries():
@@ -240,8 +242,8 @@ def users_entries():
         tones=tones,
         num_tones=len(tones),
     )
- 
- 
+
+
 @app.route("/delete_entry", methods=["GET", "POST"])
 def delete_entry():
     """Route to delete an entry in the users journal.
@@ -254,8 +256,8 @@ def delete_entry():
         # The following algorithm in the database functions file
         delete_Entry(index)
     return flask.redirect(flask.url_for("users_entries"))
- 
- 
+
+
 @app.route("/add_entry", methods=["GET", "POST"])
 def add():
     """Function to add entry to user journals"""
@@ -263,15 +265,15 @@ def add():
     poster = current_user.id
     title = flask.request.form["title"]
     contents = flask.request.form["entry"]
- 
+
     new_entry = Entry(
         user=poster, title=title, content=contents, timestamp=formation(datetime.now())
     )
     db.session.add(new_entry)
     db.session.commit()
     return flask.redirect(flask.url_for("users_entries"))
- 
- 
+
+
 if __name__ == "__main__":
     app.run(
         host=os.getenv("IP", "0.0.0.0"), port=int(os.getenv("PORT", 8080)), debug=True
