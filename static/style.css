@@ -3,15 +3,61 @@
     height: 50%;
 
 }
+
+.content {
+    background-color: #CCB4A5;
+    background-image: url(splash.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-size: contain;
+    margin: 0%;
+}
+
+.btn-placement {
+    position: absolute;
+    bottom: 5vh;
+    right: 2vw;
+}
+
+.btn-placement .btn {
+    margin: 9px;
+}
+
+.welcome {
+    font-family: 'Rubik', sans-serif;
+}
+
+.tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+    padding-right: 50px;
+    margin-top:50px;
+}
+
+#container {
+    background-color: #9c7968a6;
+    width: 50vw;
+    height: 75vh;
+    margin-left: 10%;
+    position: absolute;
+    margin-top: 4%;
+    border-radius: 5px;
+    padding: 50px;
+}
+
 #form_title {
     font-family: 'Rubik', sans-serif;
     font-weight: bold;
 }
+
 #flash {
     background-color: #66171a;
     color: white;
     padding: 10px;
 }
+
 #nav {
     background-color: #65402E;
     font-family: 'Outfit', sans-serif;
@@ -79,7 +125,7 @@
     height: 50%;
     width: auto;
     border-radius: 25px;
-    border-style:none;
+    border-style: none;
 }
 
 .btn-primary {
@@ -90,6 +136,7 @@
 .btn {
     background-color: #65042E !important;
 }
+
 .btn:hover {
     opacity: 0.8;
 }
