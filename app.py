@@ -27,7 +27,7 @@ from fun_fact import fun_fact
 from nyt import nyt_results
 
 from twitter import get_trends
-from formatDate import formation
+from useful_functions import formation, sort_emotions
 from sentiment import get_emotion
 from nasa import nasa_picture
 
@@ -227,12 +227,19 @@ def users_entries():
         return redirect(flask.url_for("home"))
     for entry in prev_entries:
         tones.append(get_emotion(entry))
+    '''We'll use possible emotions and sort key, to filter the emotions if requested by the user'''
+    possible_emotions=['All', 'Bored', 'Fearful', 'Excited', 'Happy', 'Sad']
+    sort_key='All'
+    if request.method=='POST':
+        sort_key = flask.request.form['sort_key']
+        prev_entries, tones = sort_emotions(prev_entries, sort_key, tones)
     return render_template(
         "entries.html",
         user_entries=prev_entries,
         length=len(prev_entries),
         tones=tones,
         num_tones=len(tones),
+        possible_emotions=possible_emotions,
     )
 
 
@@ -248,6 +255,8 @@ def delete_entry():
         # The following algorithm in the database functions file
         delete_Entry(index)
     return flask.redirect(flask.url_for("users_entries"))
+
+
 
 
 @app.route("/add_entry", methods=["GET", "POST"])
