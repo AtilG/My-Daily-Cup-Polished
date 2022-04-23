@@ -4,6 +4,7 @@
 <head>
     <title>Welcome!</title>
     <link rel="stylesheet" href={{ url_for( 'static' , filename='style.css' ) }} />
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -17,16 +18,19 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&family=Oleo+Script:wght@400;700&family=Outfit:wght@100;200&family=Rubik:wght@300;400&family=Square+Peg&family=Ubuntu:wght@300;400&display=swap"
         rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
 </head>
 
 
@@ -35,11 +39,14 @@
         <div id="container">
             <h1 class="welcome">Top of the morning!</h1>
             <p class="tag">You don't have to spend your morning shuffling through
+
                 different apps. <br>
+
             <div class="btn-placement">
                 <a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}">Join</a>
                 <a class="btn btn-primary btn-lg" href="{{ url_for('login') }}">Log In</a>
             </div>
+
         <p class="landing"> A personalized blog-based web application. This application is a blog where you can create journal entries with sentient analysis, a task list and interact with various widgets such as daily pictures from NASA, 
             Twitters top trending, a fun fact of the day and more!</p>
             <div class="dropdown">
@@ -54,6 +61,7 @@
 
         <p class="tag">Refreshingly simple.</p>
         <p class="authors">Created by: Isaiah Bellanton, Kevin Davis, Atil Goker, Constance Shelton</p> 
+
         </div>
     </div>
 </body>

@@ -1,9 +1,6 @@
 #logo {
     width: 50%;
     height: 50%;
-<<<<<<< Updated upstream
-
-=======
  
 }
  
@@ -32,12 +29,14 @@
     font-family: 'Rubik', sans-serif;
 }
  
+
 .tag {
     font-family: 'Outfit', sans-serif;
     font-size: 25px;
     padding-right: 50px;
     margin-top:50px;
 }
+
 
 .landing {
     font-family: 'Outfit', sans-serif;
@@ -53,6 +52,7 @@
     font-weight: bold;
 }
  
+
 #container {
     background-color: #9c7968a6;
     width: 50vw;
@@ -63,7 +63,6 @@
     border-radius: 5px;
     padding: 50px;
 }
- 
 
 
 #form_title {
@@ -75,91 +74,96 @@
     background-color: #66171a;
     color: white;
     padding: 10px;
->>>>>>> Stashed changes
+
 }
 
 #nav {
     background-color: #65402E;
+    font-family: 'Outfit', sans-serif;
 }
-
+ 
 #weather_info {
     display: block;
 }
-
+ 
 #fun_fact {
     display: block;
     margin-bottom: 10px;
 }
-
+ 
 #nyt_result {
     display: block;
 }
-
+ 
 #twitter {
     display: block;
 }
-
+ 
 #nasa {
     display: block;
 }
-
+ 
 #read {
     font-size: 1rem;
     line-height: 1.5;
 }
-
+ 
 #read #collapseNasa.collapse:not(.show) {
     display: block;
     height: 3rem;
     overflow: hidden;
 }
-
+ 
 #read #collapseNasa.collapsing {
     height: 3rem;
 }
-
+ 
 #read a.collapsed::after {
     content: 'Read more...';
 }
-
+ 
 #read a:not(.collapsed)::after {
     content: 'Read less...';
 }
-
+ 
 #settings {
     display: none;
     border: 1px solid black;
     background-color: rgb(180, 179, 179);
 }
-
+ 
 #signup {
     background-color: #CCB4A5;
     text-align: center;
 }
-
+ 
 #signup .card {
     background-color: #BF9583;
+    background-color: #be9583;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 50%;
+    width: auto;
+    border-radius: 25px;
+    border-style: none;
 }
-
+ 
 .btn-primary {
     background-color: #65042E !important;
     border-color: #65042E !important
 }
-
+ 
 .btn {
     background-color: #65042E !important;
 }
 
+.btn:hover {
+    opacity: 0.8;
+}
+ 
 .center {
     text-align: center;
 }
-
+ 
 .button {
     margin: 5px;
-}
-
-.btn-primary {
-    background-color: #65042E !important;
-    border-color: #65042E !important
-
 }

@@ -2,6 +2,7 @@
 """App routing and logic of application, application runs based off this file"""
 import os
 from datetime import datetime
+import random
 import flask
 from flask import Flask, render_template, redirect, request
 from flask_login import (
@@ -27,7 +28,7 @@ from fun_fact import fun_fact
 from nyt import nyt_results
 
 from twitter import get_trends
-from formatDate import formation
+from useful_functions import formation, sort_emotions
 from sentiment import get_emotion
 from nasa import nasa_picture
 
@@ -60,9 +61,16 @@ def load_user(user_id):
     return Joes.query.get(int(user_id))
 
 
-# route to log a user in
-# add auth back later
 @app.route("/", methods=["GET", "POST"])
+def landing():
+    # generate random welcome tags
+    tags = ["Top of the morning!", "Take your daily sip.", "Start your day off right."]
+    i = random.randrange(0, len(tags))
+    return render_template("landing.html", tag=tags[i])
+
+
+# route to log a user in
+@app.route("/login", methods=["GET", "POST"])
 def login():
     """
     Login page of application
@@ -156,9 +164,13 @@ def home():
 def add_task_list():
     """In this method we will add task to our task list"""
     if flask.request.method == "POST":
-        user = current_user.username
         title = request.form.get("task_list_title")
         content = request.form.get("task_entry")
+        if len(content) > 1500 or len(title) > 50 or len(title) < 1:
+            flask.flash(
+                "Sorry could not process that, please keep your task title between 1 and 50 charcters and your task list lower 1500 characters"
+            )
+            return flask.redirect(flask.url_for("home"))
 
         task_list_information = Task(
             title=title, content=content, user=current_user.username
@@ -190,13 +202,31 @@ def delete_task():
     return flask.redirect(flask.url_for("home"))
 
 
-@app.route("/edit_task", methods=["GET", "POST"])
-def task_editor():
+@app.route("/edit_task/<int:id>", methods=["GET", "POST"])
+def edit_task(id):
     """this function edits a task"""
+    current_task_list = Task.query.filter_by(id=id).all()
+
+    task_to_edit = Task.query.get_or_404(id)
     if flask.request.method == "POST":
-        content = request.form.get("edit_task")
-        print(content)
-    return flask.redirect(flask.url_for("home"))
+        # This will make sure that the entry is legal and will fit in our database
+        if len(request.form.get("task_edit")) > 1500:
+            flask.flash(
+                "Sorry could not process that, please keep your Tasks lower then 1500 characters"
+            )
+            return flask.redirect(flask.url_for("home"))
+        task_to_edit.content = request.form.get("task_edit")
+        try:
+            db.session.commit()
+            return redirect("/home")
+        except:
+            return "There was a problem updating that..."
+    else:
+        return render_template(
+            "edit_task.html",
+            task_to_edit=task_to_edit,
+            current_task_list=current_task_list,
+        )
 
 
 @app.route("/view_entries", methods=["GET", "POST"])
@@ -215,12 +245,19 @@ def users_entries():
         return redirect(flask.url_for("home"))
     for entry in prev_entries:
         tones.append(get_emotion(entry))
+    """We'll use possible emotions and sort key, to filter the emotions if requested by the user"""
+    possible_emotions = ["All", "Bored", "Fearful", "Excited", "Happy", "Sad"]
+    sort_key = "All"
+    if request.method == "POST":
+        sort_key = flask.request.form["sort_key"]
+        prev_entries, tones = sort_emotions(prev_entries, sort_key, tones)
     return render_template(
         "entries.html",
         user_entries=prev_entries,
         length=len(prev_entries),
         tones=tones,
         num_tones=len(tones),
+        possible_emotions=possible_emotions,
     )
 
 
@@ -246,6 +283,12 @@ def add():
     title = flask.request.form["title"]
     contents = flask.request.form["entry"]
 
+    # This will make sure that the entry is legal and will fit in our database
+    if len(contents) > 1500 or len(contents) < 1 or len(title) > 50 or len(title) < 1:
+        flask.flash(
+            "Sorry could not process that, please keep your entry title between 1 and 50 charcters and your content between 1 and 1500 characters"
+        )
+        return flask.redirect(flask.url_for("home"))
     new_entry = Entry(
         user=poster, title=title, content=contents, timestamp=formation(datetime.now())
     )

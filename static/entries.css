@@ -1,3 +1,47 @@
+#nav {
+    background-color: #65402E;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+}
+
+#logo:hover {
+    opacity: 0.5;
+}
+
+h1 {
+    font-family: 'Oleo Script', cursive;
+    padding-top: 5px;
+}
+
+h4 {
+    color: #5e4339;
+}
+
+body {
+    background-color: #AAA898 !important;
+}
+
+.entry {
+    border: none !important;
+    border-radius: 5px;
+}
+
+.card-text {
+    font-size: 20px;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+.tones {
+    font-size: 15px;
+}
+#flash {
+    background-color: #66171a;
+    color: white;
+    padding: 10px;
+}
 #brown {
     background-color: brown;
     color: white;
@@ -7,24 +51,37 @@
 #deepBrown {
     color: white;
     background: #65402E;
+    border-color: #65402E !important
 }
 
 #beige {
     color: white;
     background: #AAA898;
 }
-#brownish-pink{
+
+#brownish-pink {
     color: white;
     background: #BA9182;
-} 
-#light-brownish-pink{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-bottom: 0px;
+    font-family: 'Outfit', sans-serif;
+}
+
+#light-brownish-pink {
     color: white;
     background: #C6ADA3;
     display: flex;
 }
 
-#entry_Container{  
+#entry_Container {
     background: #D7D6D2;
     display: block;
     align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#card_footer {
+    align-items: start;
 }

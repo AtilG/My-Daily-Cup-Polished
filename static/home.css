@@ -1,5 +1,5 @@
 body {
-    background-color: #CCB4A5;
+    background-color: #dfc7b8bd;
 }
 
 a {
@@ -9,6 +9,10 @@ a {
 a:hover {
     color: black;
     opacity: 0.5;
+}
+
+h3 {
+    font-family: 'Outfit', sans-serif;
 }
 
 #pcontent {
@@ -23,10 +27,12 @@ a:hover {
 
 #nav {
     background-color: #65402E;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
 }
 
 #main {
-    background: rgba(155, 68, 42, 0.28);
+    background-color: #AAA898;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     font-family: 'Inter', sans-serif;
@@ -46,9 +52,30 @@ a:hover {
 
 }
 
+#lists {
+    font-family: 'Outfit', sans-serif;
+}
+#flash {
+    background-color: #66171a;
+    color: white;
+    padding: 10px;
+}
 #tasks {
     text-align: center;
     width: 100%;
+}
+
+.task_title {
+    font-size: 20px;
+}
+
+.task_list_display {
+    border: 2px dashed #00000033;
+    text-align: center;
+    border-radius: 5px;
+    margin: 10px;
+    padding-top: 10px;
+    background-color: #c2b3aa;
 }
 
 .sidebar-item {
@@ -126,6 +153,10 @@ a:hover {
 
 .button {
     margin: 5px;
+}
+
+.btn:hover {
+    opacity: 0.8;
 }
 
 .btn-primary {
