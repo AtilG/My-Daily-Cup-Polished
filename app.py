@@ -2,6 +2,7 @@
 """App routing and logic of application, application runs based off this file"""
 import os
 from datetime import datetime
+import random
 import flask
 from flask import Flask, render_template, redirect, request
 from flask_login import (
@@ -60,9 +61,16 @@ def load_user(user_id):
     return Joes.query.get(int(user_id))
 
 
-# route to log a user in
-# add auth back later
 @app.route("/", methods=["GET", "POST"])
+def landing():
+    # generate random welcome tags
+    tags = ["Top of the morning!", "Take your daily sip.", "Start your day off right."]
+    i = random.randrange(0, len(tags))
+    return render_template("landing.html", tag=tags[i])
+
+
+# route to log a user in
+@app.route("/login", methods=["GET", "POST"])
 def login():
     """
     Login page of application
