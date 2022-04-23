@@ -29,56 +29,29 @@
     font-family: 'Rubik', sans-serif;
 }
  
+
 .tag {
     font-family: 'Outfit', sans-serif;
     font-size: 25px;
     padding-right: 50px;
     margin-top:50px;
+}
+
+
+.landing {
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+.authors {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    padding-right: 10px;
+    margin-top:20px;
+    font-weight: bold;
 }
  
-#container {
-    background-color: #9c7968a6;
-    width: 50vw;
-    height: 75vh;
-    margin-left: 10%;
-    position: absolute;
-    margin-top: 4%;
-    border-radius: 5px;
-    padding: 50px;
-}
-<<<<<<< HEAD
-
-.content {
-    background-color: #CCB4A5;
-    background-image: url(splash.png);
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: bottom right;
-    background-size: contain;
-    margin: 0%;
-}
-
-.btn-placement {
-    position: absolute;
-    bottom: 5vh;
-    right: 2vw;
-}
-
-.btn-placement .btn {
-    margin: 9px;
-}
-
-.welcome {
-    font-family: 'Rubik', sans-serif;
-}
-
-.tag {
-    font-family: 'Outfit', sans-serif;
-    font-size: 25px;
-    padding-right: 50px;
-    margin-top:50px;
-}
 
 #container {
     background-color: #9c7968a6;
@@ -90,10 +63,7 @@
     border-radius: 5px;
     padding: 50px;
 }
-=======
- 
 
->>>>>>> ae7fd8f71c4aeb4fe0ad768304d301c2882d7fbb
 
 #form_title {
     font-family: 'Rubik', sans-serif;
@@ -104,6 +74,7 @@
     background-color: #66171a;
     color: white;
     padding: 10px;
+
 }
 
 #nav {
@@ -184,11 +155,7 @@
 .btn {
     background-color: #65042E !important;
 }
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> ae7fd8f71c4aeb4fe0ad768304d301c2882d7fbb
 .btn:hover {
     opacity: 0.8;
 }

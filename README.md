@@ -22,7 +22,11 @@ pip install geocoder
 Displays a random fun fact! The fun fact is randomly generated from a list of amazing fun facts.
 https://aakhilv.notion.site/fun-bea0f2ca5aaa411f93a3a9fa1699ce39
 
-
+# New York Times API
+New York Times API to fetch various NYT Articles. Request a key from https://developer.nytimes.com/apis and insert `NYT_KEY = <INSERT KEY HERE>` into .env file.
+# NASA API
+NASA API that provides various information such as an image of the day, weather service for mars and other features. Request an API key here https://api.nasa.gov/ after create 
+`NASA_KEY = <INSERT KEY HERE> ` in your `.env` file.
 # Flask_Login
 To use this library in your app, you must make sure to generate a secret key to store in your .env file and/or Heroku config variables.
 
