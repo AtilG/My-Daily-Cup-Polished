@@ -166,8 +166,10 @@ def add_task_list():
     if flask.request.method == "POST":
         title = request.form.get("task_list_title")
         content = request.form.get("task_entry")
-        if len(content)>1500 or len(title)>50 or len(title)<1:
-            flask.flash("Sorry could not process that, please keep your task title between 1 and 50 charcters and your task list lower 1500 characters")
+        if len(content) > 1500 or len(title) > 50 or len(title) < 1:
+            flask.flash(
+                "Sorry could not process that, please keep your task title between 1 and 50 charcters and your task list lower 1500 characters"
+            )
             return flask.redirect(flask.url_for("home"))
 
         task_list_information = Task(
@@ -207,9 +209,11 @@ def edit_task(id):
 
     task_to_edit = Task.query.get_or_404(id)
     if flask.request.method == "POST":
-        #This will make sure that the entry is legal and will fit in our database
-        if len(request.form.get("task_edit"))>1500:
-            flask.flash("Sorry could not process that, please keep your Tasks lower then 1500 characters")
+        # This will make sure that the entry is legal and will fit in our database
+        if len(request.form.get("task_edit")) > 1500:
+            flask.flash(
+                "Sorry could not process that, please keep your Tasks lower then 1500 characters"
+            )
             return flask.redirect(flask.url_for("home"))
         task_to_edit.content = request.form.get("task_edit")
         try:
@@ -279,9 +283,11 @@ def add():
     title = flask.request.form["title"]
     contents = flask.request.form["entry"]
 
-    #This will make sure that the entry is legal and will fit in our database
-    if len(contents)>1500 or len(contents)< 1 or len(title)>50 or len(title)<1:
-        flask.flash("Sorry could not process that, please keep your entry title between 1 and 50 charcters and your content between 1 and 1500 characters")
+    # This will make sure that the entry is legal and will fit in our database
+    if len(contents) > 1500 or len(contents) < 1 or len(title) > 50 or len(title) < 1:
+        flask.flash(
+            "Sorry could not process that, please keep your entry title between 1 and 50 charcters and your content between 1 and 1500 characters"
+        )
         return flask.redirect(flask.url_for("home"))
     new_entry = Entry(
         user=poster, title=title, content=contents, timestamp=formation(datetime.now())
