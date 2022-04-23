@@ -57,9 +57,9 @@ Another thing to know before using this API is that you need to install their li
 
 # Linting
 
-Disabled linter for the `tests.py` as this is just for testing logic in our API
 Disabled linting in `models.py` which is our database model due to multiple false positives such as no member and too few classes.
 Disabled nomember error in `database_functions.py` and `app.py`. This can also be resolved by adding loading the installed plugin to your `settings.json` file using
 ` "python.linting.pylintArgs": ["--load-plugins", "pylint_flask_sqlalchemy", "pylint_flask"]`
+Disabled pylint error C0301, Which essentially tells us that the line is too long. It was disabled because all of the urls and uris in the tests.py file were too long, and the file would be thousands of lines long if we broke the links down into seperate lines.
 
 
